@@ -1,18 +1,34 @@
-import React from 'react';
+import React from "react";
 import storeItems from "../data/items.json";
-import { Col, Row } from 'react-bootstrap';
-import { StoreItem } from '../components/StoreItem';
+import { Col, Row } from "react-bootstrap";
+import { StoreItem } from "../components/StoreItem";
+import { JSX } from "react/jsx-runtime";
+import { useFilteredItems } from "../context/FilteredItemsContext";
+import { CategoryBar } from "../components/CategoryBar/CategoryBar";
 
 export const Store = () => {
+  const { filteredItems } = useFilteredItems();
+
   return (
     <>
-    <h1>Store</h1>
-    <Row md={2} xs={1} lg={3} className='g-3'>
-      {storeItems.map(item => (
-        <Col key={item.id}><StoreItem {...item} /></Col>
-      ))}
-    </Row>
+      <h1>Store</h1>
+      <CategoryBar />
+      <Row md={2} xs={1} lg={3} className="g-3">
+        {filteredItems.map(
+          (
+            item: JSX.IntrinsicAttributes & {
+              id: number;
+              name: string;
+              price: number;
+              imgUrl: string;
+            }
+          ) => (
+            <Col key={item.id}>
+              <StoreItem {...item} />
+            </Col>
+          )
+        )}
+      </Row>
     </>
-    
-  )
-}
+  );
+};
