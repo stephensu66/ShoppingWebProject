@@ -12,6 +12,7 @@ type ShoppingCartProviderProps = {
   children: ReactNode;
 };
 type CartItem = {
+  [x: string]: any;
   id: number;
   quantity: number;
 };

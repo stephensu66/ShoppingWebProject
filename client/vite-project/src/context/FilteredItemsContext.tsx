@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext, useContext, useMemo, useState } from 'react';
+import  { ReactNode, createContext, useContext, useMemo, useState } from 'react';
 import storeItems from "../data/items.json";
 
 const FilteredItemsContext =  createContext({} as FilteredItemsContext);
@@ -23,9 +23,11 @@ export const FilteredItemsProvider = ({children}: FilteredItemsContextProps) => 
         if (!query.trim() && !selectedCategory) return storeItems;
         return storeItems.filter(item => {
           return (
-            item.name.toLowerCase().includes(selectedCategory.toLowerCase()) &&
+            item.category.toLowerCase().includes(selectedCategory.toLowerCase()) &&
             (item.name.toLowerCase().includes(query.toLowerCase()) ||
-            item.price.toString().includes(query.toLowerCase()))
+            item.price.toString().includes(query.toLowerCase()) ||
+            item.category.toString().includes(query.toLowerCase())
+            )
           );
         });
       }, [storeItems, query, selectedCategory]);

@@ -3,11 +3,85 @@
     "id": 1,
     "name": "Clothes1",
     "price": 10.99,
-    "imgUrl": "/imgs/clothes1.jpeg"
+    "imgUrl": "/imgs/clothes1.jpeg",
+    "category":"clothes",
+    "stock": 10
 },
 {   "id": 2,
     "name": "Clothes2",
     "price": 20.99,
-    "imgUrl": "/imgs/clothes2.jpeg"
+    "imgUrl": "/imgs/clothes2.jpeg",
+    "category":"clothes",
+    "stock": 9
+},
+{   "id": 3,
+    "name": "Clothes3",
+    "price": 20.99,
+    "imgUrl": "/imgs/clothes2.jpeg",
+    "category":"clothes",
+    "stock": 18
+},
+{   "id": 4,
+    "name": "shoes3",
+    "price": 14.99,
+    "imgUrl": "/imgs/shoes1.jpeg",
+    "category":"shoes",
+    "stock": 20
+},
+{   "id": 5,
+    "name": "shoes2",
+    "price": 20.99,
+    "imgUrl": "/imgs/shoes2.jpeg",
+    "category":"shoes",
+    "stock": 22
+},
+{   "id": 6,
+    "name": "shoes3",
+    "price": 20.99,
+    "imgUrl": "/imgs/shoes3.webp",
+    "category":"shoes",
+    "stock": 43
+},
+{   "id": 7,
+    "name": "flowers1",
+    "price": 14,
+    "imgUrl": "/imgs/flowers1.jpeg",
+    "category":"flowers",
+    "stock": 5
+},
+{   "id": 8,
+    "name": "flowers2",
+    "price": 16.99,
+    "imgUrl": "/imgs/flowers2.jpeg",
+    "category":"flowers",
+    "stock": 7
+},
+{   "id": 9,
+    "name": "flowers3",
+    "price": 20.99,
+    "imgUrl": "/imgs/flowers3.jpeg",
+    "category":"flowers",
+    "stock": 8
+},
+{   "id": 10,
+    "name": "pets1",
+    "price": 55.99,
+    "imgUrl": "/imgs/pets1.jpeg",
+    "category":"pets",
+    "stock": 4
+},
+{   "id": 11,
+    "name": "pets2",
+    "price": 30.99,
+    "imgUrl": "/imgs/pets2.jpeg",
+    "category":"pets",
+    "stock": 3
+},
+{   "id": 12,
+    "name": "pets3",
+    "price": 50.99,
+    "imgUrl": "/imgs/pets3.jpeg",
+    "category":"pets",
+    "stock": 5
 }
 ]

@@ -21,6 +21,8 @@ export const Store = () => {
               name: string;
               price: number;
               imgUrl: string;
+              category: string;
+              stock: number;
             }
           ) => (
             <Col key={item.id}>

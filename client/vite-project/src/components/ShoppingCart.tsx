@@ -25,7 +25,7 @@ export function ShoppingCart ({ isOpen }: ShoppingCartProps) {
                     const item=storeItems.find(i => i.id === cartItem.id)
                     return total + (item?.price || 0) * cartItem.quantity
                 },0 ))}</div>
-                <Button as={Link} to="/about" onClick={closeCart}>Proceed to Checkout</Button>
+                <Button as={Link} to="/checkout" onClick={closeCart}>Proceed to Checkout</Button>
             </Stack>
         </Offcanvas.Body>
     </Offcanvas>
