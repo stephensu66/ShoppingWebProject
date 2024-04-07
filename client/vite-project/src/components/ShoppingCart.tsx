@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Button, Offcanvas, Stack } from 'react-bootstrap'
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import {CartItem} from "./CartItem"
@@ -25,7 +25,9 @@ export function ShoppingCart ({ isOpen }: ShoppingCartProps) {
                     const item=storeItems.find(i => i.id === cartItem.id)
                     return total + (item?.price || 0) * cartItem.quantity
                 },0 ))}</div>
-                <Button as={Link} to="/checkout" onClick={closeCart}>Proceed to Checkout</Button>
+                <Button onClick={closeCart}>
+                        <Link to="/checkout" className="btn btn-primary">Proceed to Checkout</Link>
+                    </Button>
             </Stack>
         </Offcanvas.Body>
     </Offcanvas>
