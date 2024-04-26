@@ -15,6 +15,7 @@ type CartItem = {
   [x: string]: any;
   id: number;
   quantity: number;
+  
 };
 
 type ShoppingCartContext = {

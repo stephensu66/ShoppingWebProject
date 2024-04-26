@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import { Home } from "./pages/Home";
+
 import { Store } from "./pages/Store";
 import { Checkout } from "./pages/Checkout";
 import { Navbar } from "./components/Navbar";
@@ -12,13 +12,15 @@ function App() {
     <ShoppingCartProvider>
       <FilteredItemsProvider>
         <Navbar />
-        <Container>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/store" element={<Store />} />
+        <div style={{ backgroundColor: "#a3cef1", paddingTop: "20px" }}>
+        <Container >
+          <Routes >
+            
+            <Route path="/" element={<Store />} />
             <Route path="/checkout" element={<Checkout />} />
           </Routes>
         </Container>
+        </div>
       </FilteredItemsProvider>
     </ShoppingCartProvider>
       

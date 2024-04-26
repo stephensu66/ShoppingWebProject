@@ -1,13 +1,15 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { CartItem } from "../components/CartItem";
 import { formatCurrency } from "../utility/formatCurrency";
-import storeItems from "../data/items.json";
+import storeItems from "../database/items.json";
 import { Button, Container } from "react-bootstrap";
 import emailjs from "@emailjs/browser";
 
 export const Checkout = () => {
   const { cartItems, removeFromCart } = useShoppingCart();
+
+  const [emailSent, setEmailSent] = useState(false);
 
   const form = useRef<HTMLFormElement>(null);
 
@@ -15,6 +17,7 @@ export const Checkout = () => {
     const item = storeItems.find((i) => i.id === cartItem.id);
     return total + (item?.price || 0) * cartItem.quantity;
   }, 0);
+  
 
   const sendEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -39,11 +42,6 @@ export const Checkout = () => {
     const productDetailsWithTotal = `${productDetails}\nTotal Price: ${formatCurrency(totalPrice)}`;
     formData.append("productDetails", productDetailsWithTotal);
 
-    console.log("FormData", productDetailsWithTotal);
-    // console.log("productDetails", formData.get("productDetails"));
-
-    
-    
     emailjs
       .send(
         "service_ad511nc",
@@ -55,7 +53,7 @@ export const Checkout = () => {
       .then(
         () => {
           console.log("SUCCESS!");
-
+          setEmailSent(true);
           cartItems.map(item => removeFromCart(item.id));
         },
         (error) => {
@@ -98,12 +96,14 @@ export const Checkout = () => {
             </div>
             <div className="col-md-18 form-group mb-3">
               <label>Email</label>
-              <input type="text" name="email" className="form-control" />
+              <input type="text" name="email" className="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
             </div>
             <Button type="submit" name="productDetails">Place Order</Button>
           </form>
+          {emailSent && <h3>Your ordered items are all in stock and email sent to you successfully!</h3>}
         </div>
       </Container>
+      
     </>
   );
 };

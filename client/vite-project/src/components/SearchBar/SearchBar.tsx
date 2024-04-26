@@ -9,12 +9,13 @@ export function SearchBar() {
   
 
   return (
-    <div>
+    <div >
       <input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         type="search"
-        placeholder="search for a character"
+        placeholder="Search Products..."
+        style={{ width: "100%" }}
       />
       
     </div>

@@ -7,7 +7,7 @@ import logo from "../assets/images.png";
 export const Navbar = () => {
   const { openCart } = useShoppingCart();
   return (
-    <NavbarBs className="bg-white shadow-sm mb-3">
+    <NavbarBs style={{ backgroundColor: "#e7ecef" }} className=" shadow-sm mb-0">
       <Container>
         <img
           src={logo}
@@ -16,11 +16,12 @@ export const Navbar = () => {
           style={{ maxWidth: "40px" }}
         />
         <Nav className="me-1">
-          <Link to="/" className="me-3">Home</Link>
-          <Link to="/store" className="me-3">Store</Link>
+          <Link to="/" className="me-3">Store</Link>
           <Link to="/checkout" className="me-3">Checkout</Link>
         </Nav>
-        <SearchBar />
+        <div style={{ width: "250px" }}>
+        <SearchBar  />
+        </div>
         <Button
           onClick={openCart}
           variant="outline-primary"

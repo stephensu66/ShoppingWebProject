@@ -1,6 +1,7 @@
 import { Button, Card } from "react-bootstrap";
 import { formatCurrency } from "../utility/formatCurrency";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { useState } from "react";
 
 type StoreItemProps = {
   id: number;
@@ -21,8 +22,14 @@ export function StoreItem({ id, name, price, imgUrl, category, stock}: StoreItem
   } = useShoppingCart();
   const quantity = getItemQuantity(id);
 
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <Card className="h-100">
+    <Card className="h-100"
+    onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={isHovered ? { backgroundColor: "#e7ecef" } : undefined}
+      >
       <Card.Img
         variant="top"
         src={imgUrl}
@@ -54,7 +61,7 @@ export function StoreItem({ id, name, price, imgUrl, category, stock}: StoreItem
                 <div>
                   <span className="fs-3">{quantity}</span> in cart
                 </div>
-                <Button onClick={() => increaseCartQuantity(id)}>+</Button>
+                <Button onClick={() => increaseCartQuantity(id)} disabled={quantity >= stock}>+</Button>
               </div>
               <Button
                 onClick={() => removeFromCart(id)}

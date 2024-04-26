@@ -1,1 +1,1 @@
-web: vite preview
+web: npm run preview
